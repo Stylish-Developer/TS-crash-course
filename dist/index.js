@@ -51,13 +51,78 @@ const personInfo = {
     suit: true,
 };
 console.log(JSON.stringify(personInfo));
+// -- Type Assertion
+// this is nothing but explicitly telling the data type to the compiler
+// initially the data type of following var is any
+let amount;
+amount = 10;
+let totalAmount = amount;
+// totalAmount = "Angle"  this will be shown error when you un comment this
 // -- Function
 const sum1 = (brand, model) => {
     return `I am using ${brand} ${model} with powerful A13 bionic chip`;
 };
-// if the function does not return anything
+// if the function does not return anything - mention type void
 const sum2 = (brand, model) => {
     console.log(`I am using ${brand} ${model} with powerful M2 pro chip`);
 };
 console.log(sum1("Apple", "Iphone SE2"));
 console.log(sum2("Apple", "MacBookPro 14'inch"));
+const cars = {
+    brand1: 'MERCEDES BENZ',
+    brand2: 'BMW',
+    brand3: 'PORSCHE',
+    brand4: 'ASTON MARTIN',
+    brand5: 'BENTLY',
+};
+const add = (a, b) => {
+    return a * b;
+};
+const op = add(10, 15);
+console.log(JSON.stringify(cars));
+console.log(op);
+// -- classes
+class Product {
+    constructor(pid, pname, pprice) {
+        this.pid = pid;
+        this.pname = pname;
+        this.pprice = pprice;
+    }
+    display() {
+        return `Your product ${this.pname} order is confirmed.`;
+    }
+}
+const newObject = new Product(1, "MACBOOK PRO 14'INCH", "$2440.08");
+const output = newObject.display();
+// alert(output); // go to chrome and run the index.html file then see the alert message
+console.log(newObject.display());
+class Sample {
+    constructor(dname) {
+        this.dname = dname;
+    }
+    throwOutput() {
+        console.log(`Your device ${this.dname} is now connected.`);
+    }
+}
+const sampleOutput = new Sample("boult stone 350");
+sampleOutput.throwOutput();
+// -- Extending classes [ subclasses ]
+class Test extends Sample {
+    constructor(dname, mobileDevice) {
+        super(dname);
+        this.mobileDevice = mobileDevice;
+    }
+}
+const displayOutput = new Test("boult stone 350", "Iphone SE2");
+console.log(displayOutput.throwOutput());
+// --Generics
+const App = (items) => {
+    const newArr = [];
+    for (let i = 0; i < items.length; i++) {
+        newArr.push(items[i]);
+    }
+    // newArr.push(items);
+    return newArr;
+};
+const appOutput = App(['Pendrive', "Hardisk", "Mouse", "Keyboard"]);
+console.log(appOutput);
