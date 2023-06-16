@@ -116,13 +116,15 @@ class Test extends Sample {
 const displayOutput = new Test("boult stone 350", "Iphone SE2");
 console.log(displayOutput.throwOutput());
 // --Generics
-const App = (items) => {
+// which are basically used to build reuseable components
+// basically like a placeholder of the type
+function App(items) {
     const newArr = [];
     for (let i = 0; i < items.length; i++) {
         newArr.push(items[i]);
     }
     // newArr.push(items);
     return newArr;
-};
+}
 const appOutput = App(['Pendrive', "Hardisk", "Mouse", "Keyboard"]);
 console.log(appOutput);
